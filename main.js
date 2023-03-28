@@ -1,12 +1,11 @@
 const container = document.querySelector('.container');
 const body = document.querySelector('body');
-const spinner = document.querySelector('.spinner');
 const button = document.querySelector('button');
 
 button.addEventListener('click', ()=> {
     container.innerHTML = '';
     let number = prompt('How many square in line would You like to have?',16);
-    if (number > 64) number = 64;
+    if (number > 100) number = 100;
     createGrid(number);
 })
 button.addEventListener('click', ()=> {'click', createGrid(2)})
@@ -34,7 +33,9 @@ function createGrid(number) {
 
         div.addEventListener('mouseenter', (e)=> {
         if (mouseDown) {
+            console.log(div.style.backgroundColor)
             div.style.backgroundColor = createRandomRGB()
+            console.log(div.style.backgroundColor)
             }
         });
         container.appendChild(div);
@@ -54,3 +55,15 @@ function createRandomRGB() {
     return `rgb(${r},${g},${b})`
 }
 
+function getColorsFromStyles(string) {
+    let rgb = string.slice(5,-1);
+    let darkRgb = rgb.split(',');
+    let rgb2 = darkRgb.map((e)=> {
+        e = +e-30;
+        if (e<0) e=0;
+        return e;
+    })
+    return `rgb(${rgb2[0]},${rgb2[1]},${rgb2[2]})`
+}
+
+console.log(getColorsFromStyles("rgb(231,15,57)"))
