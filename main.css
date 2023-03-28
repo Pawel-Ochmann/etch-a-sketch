@@ -10,3 +10,26 @@ body {
     display:flex;
     flex-wrap: wrap;
 }
+
+.spinner {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    display:flex;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    text-align: center;
+    background-color: #706c6c;
+    filter: opacity(.4);
+    display:none;
+}
+.spinner>i{
+    animation: rotate 1.5s linear infinite; 
+  }
+  @keyframes rotate{
+    to{ transform: rotate(360deg); }
+  }

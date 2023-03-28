@@ -1,5 +1,6 @@
 const container = document.querySelector('.container');
 const body = document.querySelector('body');
+const spinner = document.querySelector('.spinner');
 
 let mouseDown = false;
 
@@ -12,6 +13,7 @@ body.addEventListener('mouseup', ()=> {
 
 
 function createGrid(number) {
+
     let squareNumber = number*number;
     for (let i = 0; i<squareNumber; i++) {
         let div = document.createElement('div');
@@ -29,4 +31,4 @@ function createGrid(number) {
     }
 }
 
-createGrid(16);
+
