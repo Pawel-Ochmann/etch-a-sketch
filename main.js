@@ -1,6 +1,16 @@
 const container = document.querySelector('.container');
 const body = document.querySelector('body');
 const spinner = document.querySelector('.spinner');
+const button = document.querySelector('button');
+
+button.addEventListener('click', ()=> {
+    container.innerHTML = '';
+    let number = prompt('How many square in line would You like to have?',16);
+    if (number > 50) number = 50;
+    createGrid(number);
+})
+button.addEventListener('click', ()=> {'click', createGrid(2)})
+
 
 let mouseDown = false;
 
@@ -18,8 +28,8 @@ function createGrid(number) {
     for (let i = 0; i<squareNumber; i++) {
         let div = document.createElement('div');
         
-        div.style.width = `${Math.floor(container.clientWidth/number)}px`;
-        div.style.height = `${Math.floor(container.clientHeight/number)}px`;
+        div.style.width = `${Math.floor(480/number)}px`;
+        div.style.height = `${Math.floor(480/number)}px`;
         
 
         div.addEventListener('mouseenter', (e)=> {
@@ -29,6 +39,7 @@ function createGrid(number) {
         });
         container.appendChild(div);
     }
+
 }
 
 
