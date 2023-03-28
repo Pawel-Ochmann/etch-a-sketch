@@ -6,7 +6,7 @@ const button = document.querySelector('button');
 button.addEventListener('click', ()=> {
     container.innerHTML = '';
     let number = prompt('How many square in line would You like to have?',16);
-    if (number > 50) number = 50;
+    if (number > 64) number = 64;
     createGrid(number);
 })
 button.addEventListener('click', ()=> {'click', createGrid(2)})
@@ -28,13 +28,13 @@ function createGrid(number) {
     for (let i = 0; i<squareNumber; i++) {
         let div = document.createElement('div');
         
-        div.style.width = `${Math.floor(480/number)}px`;
-        div.style.height = `${Math.floor(480/number)}px`;
+        div.style.width = `${480/number}px`;
+        div.style.height = `${480/number}px`;
         
 
         div.addEventListener('mouseenter', (e)=> {
         if (mouseDown) {
-            div.style.backgroundColor = "black"
+            div.style.backgroundColor = createRandomRGB()
             }
         });
         container.appendChild(div);
@@ -42,4 +42,15 @@ function createGrid(number) {
 
 }
 
+
+function randomColor() {
+   return Math.floor(Math.random()*256)
+}
+function createRandomRGB() {
+    let r = randomColor();
+    let g = randomColor();
+    let b = randomColor();
+
+    return `rgb(${r},${g},${b})`
+}
 
