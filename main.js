@@ -34,7 +34,14 @@ function createGrid(number) {
         div.addEventListener('mouseenter', (e)=> {
         if (mouseDown) {
             console.log(div.style.backgroundColor)
+            
+            if(!div.style.backgroundColor) {
             div.style.backgroundColor = createRandomRGB()
+            }
+            else 
+            {
+            div.style.backgroundColor = getColorsFromStyles(div.style.backgroundColor);
+            }
             console.log(div.style.backgroundColor)
             }
         });
